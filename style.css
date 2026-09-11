@@ -1,0 +1,893 @@
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+    --roxo-bebe: #d8c4ff;
+    --lilas: #c5a8ff;
+    --roxo: #8b5cf6;
+    --roxo-escuro: #6d3fd1;
+    --roxo-profundo: #4c1d95;
+
+    --fundo: #faf8ff;
+    --fundo-card: #ffffff;
+    --texto: #30263d;
+    --texto-claro: #756b82;
+
+    --sombra: 0 15px 40px rgba(139, 92, 246, 0.15);
+    --transicao: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    overflow-x: hidden;
+}
+
+/* Seleção de texto */
+
+::selection {
+    background: var(--roxo);
+    color: white;
+}
+
+
+/* =====================================================
+   FUNDO DECORATIVO
+===================================================== */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: var(--roxo-bebe);
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35;
+    top: -150px;
+    right: -100px;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    background: var(--lilas);
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.25;
+    bottom: -100px;
+    left: -100px;
+    z-index: -1;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    background: rgba(250, 248, 255, 0.85);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+nav {
+    max-width: 1150px;
+    margin: auto;
+
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--texto);
+}
+
+.logo span {
+    color: var(--roxo);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--texto);
+    font-size: 14px;
+    font-weight: 500;
+
+    position: relative;
+
+    transition: var(--transicao);
+}
+
+nav ul li a::after {
+    content: "";
+
+    position: absolute;
+    width: 0;
+    height: 2px;
+
+    bottom: -7px;
+    left: 0;
+
+    background: var(--roxo);
+
+    transition: var(--transicao);
+}
+
+nav ul li a:hover {
+    color: var(--roxo);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   INÍCIO
+===================================================== */
+
+.inicio {
+    min-height: 100vh;
+
+    max-width: 1150px;
+    margin: auto;
+
+    padding: 150px 30px 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 70px;
+}
+
+.texto-inicio {
+    max-width: 650px;
+}
+
+.ola {
+    color: var(--roxo);
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.texto-inicio h1 {
+    font-size: clamp(60px, 8vw, 105px);
+    line-height: 0.95;
+
+    font-weight: 800;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 25px;
+}
+
+.texto-inicio h1 span {
+    color: var(--roxo);
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.25);
+}
+
+.texto-inicio h2 {
+    color: var(--roxo-escuro);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.texto-inicio > p:not(.ola) {
+    color: var(--texto-claro);
+    max-width: 600px;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.botao {
+    display: inline-block;
+
+    padding: 14px 28px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-weight: 600;
+
+    background: linear-gradient(
+        135deg,
+        var(--roxo),
+        var(--roxo-escuro)
+    );
+
+    box-shadow:
+        0 10px 25px rgba(139, 92, 246, 0.3);
+
+    transition: var(--transicao);
+}
+
+.botao:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(139, 92, 246, 0.45);
+}
+
+
+/* =====================================================
+   CAIXA DE CÓDIGO
+===================================================== */
+
+.codigo {
+    width: 420px;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background: #21182e;
+
+    color: #eee;
+
+    font-family: 'Space Mono', monospace;
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    box-shadow:
+        0 25px 60px rgba(76, 29, 149, 0.25);
+
+    border: 1px solid rgba(197, 168, 255, 0.3);
+
+    position: relative;
+
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+.codigo::before {
+    content: "●  ●  ●";
+
+    position: absolute;
+
+    top: 10px;
+    left: 20px;
+
+    color: var(--lilas);
+
+    letter-spacing: 4px;
+}
+
+.codigo .barra {
+    height: 20px;
+}
+
+.roxo {
+    color: #c4a7ff;
+}
+
+.lilas {
+    color: #e1d4ff;
+}
+
+@keyframes flutuar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* =====================================================
+   SEÇÕES
+===================================================== */
+
+.secao {
+    max-width: 1050px;
+    margin: auto;
+
+    padding: 110px 30px;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 55px;
+}
+
+.titulo p {
+    color: var(--roxo);
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+}
+
+.titulo h2 {
+    font-size: 38px;
+}
+
+.titulo h2::after {
+    content: "";
+
+    display: block;
+
+    width: 60px;
+    height: 4px;
+
+    margin-top: 8px;
+
+    background: var(--roxo);
+
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   SOBRE
+===================================================== */
+
+.sobre-conteudo {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+.sobre-conteudo p {
+    color: var(--texto-claro);
+
+    line-height: 1.9;
+
+    margin-bottom: 20px;
+}
+
+.sobre-conteudo strong {
+    color: var(--roxo-escuro);
+}
+
+
+/* =====================================================
+   CARD DE DESTAQUE
+===================================================== */
+
+.card-destaque {
+    padding: 40px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f0e9ff
+        );
+
+    border: 1px solid var(--roxo-bebe);
+
+    box-shadow: var(--sombra);
+
+    transition: var(--transicao);
+}
+
+.card-destaque:hover {
+    transform: translateY(-10px) rotate(1deg);
+
+    box-shadow:
+        0 25px 50px rgba(139, 92, 246, 0.2);
+}
+
+.card-destaque span {
+    font-size: 55px;
+
+    color: var(--roxo);
+
+    font-family: 'Space Mono', monospace;
+}
+
+.card-destaque h3 {
+    font-size: 25px;
+
+    margin: 15px 0 10px;
+
+    color: var(--roxo-escuro);
+}
+
+
+/* =====================================================
+   CURSO
+===================================================== */
+
+.curso {
+    max-width: 1150px;
+}
+
+.curso-texto {
+    max-width: 850px;
+
+    margin-bottom: 50px;
+}
+
+.curso-texto h3 {
+    color: var(--roxo-escuro);
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+.curso-texto p {
+    color: var(--texto-claro);
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+}
+
+.curso-texto strong {
+    color: var(--roxo);
+}
+
+
+/* =====================================================
+   MATÉRIAS
+===================================================== */
+
+.materias {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.materia {
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    border: 1px solid rgba(197, 168, 255, 0.5);
+
+    border-radius: 20px;
+
+    transition: all 0.35s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.materia::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    background: var(--roxo-bebe);
+
+    border-radius: 50%;
+
+    top: -50px;
+    right: -50px;
+
+    opacity: 0.35;
+
+    transition: var(--transicao);
+}
+
+.materia:hover {
+    transform: translateY(-10px);
+
+    border-color: var(--roxo);
+
+    box-shadow: var(--sombra);
+}
+
+.materia:hover::before {
+    transform: scale(2);
+}
+
+.materia span {
+    font-size: 35px;
+
+    display: block;
+
+    margin-bottom: 15px;
+}
+
+.materia h3 {
+    color: var(--roxo-escuro);
+
+    font-size: 19px;
+
+    margin-bottom: 10px;
+}
+
+.materia p {
+    color: var(--texto-claro);
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   HABILIDADES
+===================================================== */
+
+.habilidades {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 30px;
+}
+
+.habilidade {
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    border: 1px solid #eee6ff;
+
+    transition: var(--transicao);
+}
+
+.habilidade:hover {
+    transform: translateX(5px);
+
+    box-shadow: var(--sombra);
+}
+
+.topo {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    font-weight: 600;
+}
+
+.topo span:last-child {
+    color: var(--roxo);
+}
+
+.barra-habilidade {
+    width: 100%;
+
+    height: 8px;
+
+    background: #eee9f7;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progresso {
+    height: 100%;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--roxo-bebe),
+            var(--roxo)
+        );
+
+    animation: carregar 1.5s ease;
+}
+
+.html {
+    width: 90%;
+}
+
+.css {
+    width: 85%;
+}
+
+.python {
+    width: 70%;
+}
+
+.banco {
+    width: 75%;
+}
+
+.logica {
+    width: 80%;
+}
+
+@keyframes carregar {
+
+    from {
+        width: 0;
+    }
+
+}
+
+
+/* =====================================================
+   OBJETIVO
+===================================================== */
+
+.objetivo {
+    max-width: 1050px;
+
+    margin: 70px auto;
+
+    padding: 80px 50px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8dcff,
+            #cdb5ff
+        );
+
+    box-shadow:
+        0 25px 60px rgba(139, 92, 246, 0.2);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.objetivo::after {
+    content: "</>";
+
+    position: absolute;
+
+    font-family: 'Space Mono', monospace;
+
+    font-size: 180px;
+
+    right: -20px;
+    bottom: -70px;
+
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.pequeno {
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: var(--roxo-profundo);
+
+    margin-bottom: 15px;
+}
+
+.objetivo h2 {
+    font-size: 42px;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+
+    color: #38204f;
+}
+
+.objetivo > div {
+    max-width: 650px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.objetivo div > p:last-child {
+    color: #654f7c;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   RODAPÉ
+===================================================== */
+
+footer {
+    text-align: center;
+
+    padding: 70px 20px;
+
+    background: #21182e;
+
+    color: white;
+}
+
+footer h2 {
+    color: var(--roxo-bebe);
+
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #b9a9c9;
+
+    font-size: 14px;
+}
+
+footer .copyright {
+    margin-top: 30px;
+
+    font-size: 12px;
+
+    color: #81718f;
+}
+
+
+/* =====================================================
+   ANIMAÇÃO DE ENTRADA
+===================================================== */
+
+.texto-inicio {
+    animation: aparecer 1s ease forwards;
+}
+
+.codigo {
+    animation:
+        aparecer 1s ease forwards,
+        flutuar 4s ease-in-out 1s infinite;
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .inicio {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding-top: 130px;
+    }
+
+    .codigo {
+        width: 100%;
+    }
+
+    .sobre-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .materias {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    nav {
+        padding: 0 20px;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .inicio {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .texto-inicio h1 {
+        font-size: 65px;
+
+        letter-spacing: -3px;
+    }
+
+    .texto-inicio h2 {
+        font-size: 20px;
+    }
+
+    .secao {
+        padding: 80px 20px;
+    }
+
+    .titulo h2 {
+        font-size: 30px;
+    }
+
+    .materias {
+        grid-template-columns: 1fr;
+    }
+
+    .habilidades {
+        grid-template-columns: 1fr;
+    }
+
+    .objetivo {
+        margin: 30px 20px;
+
+        padding: 50px 30px;
+    }
+
+    .objetivo h2 {
+        font-size: 32px;
+    }
+
+}
